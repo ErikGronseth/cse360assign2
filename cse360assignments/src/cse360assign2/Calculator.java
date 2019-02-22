@@ -6,7 +6,7 @@
  *time to pieces of the program being made.
  */
 
-package cse360assign3;
+package cse360assign2;
 
 public class Calculator {
 
@@ -15,20 +15,24 @@ public class Calculator {
 	 * division. It can grab the total after any number of steps have been
 	 * used, and it only works with integers. An additional function is
 	 * used to print to the screen all the commands used until that point.
+	 * A private variable history will keep track in each function.
 	 *@author Erik Gronseth
 	 *@version %I%, %G%
 	 *@since 1.8.0_191
 	 */
 	
 	private int total;
+	private String history;
 	
 	public Calculator () {
 		
 		/**This is the constructor that sets total to 0 to begin.
 		 * This ensures that any time you begin calculator again, it
 		 * won't keep the value from the previous calculations.
+		 * It also begins the history string here.
 		 */
 		total = 0;
+		history = "0";
 	}
 	
 	public int getTotal () {
@@ -46,6 +50,7 @@ public class Calculator {
 		 *@value Added to the current total.
 		 */
 		total += value;
+		history += " + " + value;
 	}
 	
 	public void subtract (int value) {
@@ -55,6 +60,7 @@ public class Calculator {
 		 *@value Subtracted from the current total.
 		 */
 		total -= value;
+		history += " - " + value;
 	}
 	
 	public void multiply (int value) {
@@ -64,6 +70,7 @@ public class Calculator {
 		 *@value Multiply current total by this number.
 		 */
 		total *= value;
+		history += " * " + value;
 	}
 	
 	public void divide (int value) {
@@ -76,10 +83,12 @@ public class Calculator {
 		 */
 		if(value != 0) {
 			total /= value;
+			
 		}
 		else {
 			total = 0;
 		}
+		history += " / " + value;
 	}
 	
 	public String getHistory () {
@@ -89,7 +98,8 @@ public class Calculator {
 		 * is represented by its proper symbol (+,-,*,/) and will start
 		 * with the initial value of 0 and each value used in between
 		 * function calls.
+		 * @return The history string is sent out.
 		 */
-		return "";
+		return history;
 	}
 }

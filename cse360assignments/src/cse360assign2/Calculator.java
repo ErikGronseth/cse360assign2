@@ -28,15 +28,15 @@ public class Calculator {
 		 * This ensures that any time you begin calculator again, it
 		 * won't keep the value from the previous calculations.
 		 */
-		total = 0;  // not needed - included for clarity
+		total = 0;
 	}
 	
 	public int getTotal () {
 		
 		/**This function simply sends out the current value of total.
-		 *@total Value sent out.
+		 *@return The current total is sent out.
 		 */
-		return 0;
+		return total;
 	}
 	
 	public void add (int value) {
@@ -45,6 +45,7 @@ public class Calculator {
 		 * current total.
 		 *@value Added to the current total.
 		 */
+		total += value;
 	}
 	
 	public void subtract (int value) {
@@ -53,6 +54,7 @@ public class Calculator {
 		 * from the current total.
 		 *@value Subtracted from the current total.
 		 */
+		total -= value;
 	}
 	
 	public void multiply (int value) {
@@ -61,6 +63,7 @@ public class Calculator {
 		 * total by the value.
 		 *@value Multiply current total by this number.
 		 */
+		total *= value;
 	}
 	
 	public void divide (int value) {
@@ -71,6 +74,12 @@ public class Calculator {
 		 * All results will be rounded down.
 		 *@value Divide total by this number.
 		 */
+		if(value != 0) {
+			total /= value;
+		}
+		else {
+			total = 0;
+		}
 	}
 	
 	public String getHistory () {
